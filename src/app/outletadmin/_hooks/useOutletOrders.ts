@@ -93,7 +93,7 @@ export const useOutletOrders = () => {
     const fetchEmployees = async () => {
         if (!outletId) return;
         try {
-            const res = await api.get('/api/workers');
+            const res = await api.get('/workers');
             // Check for various response structures
             const workersData = res.data.data || res.data;
 

@@ -9,7 +9,7 @@ import FacebookProvider from 'next-auth/providers/facebook';
 async function refreshAccessToken(token: any) {
   try {
     const { data } = await axios.post(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/auth/refresh`,
+      `${process.env.NEXT_PUBLIC_API_URL}/auth/refresh`,
       {
         refreshToken: token.refreshToken,
       }
@@ -53,7 +53,7 @@ const handler = NextAuth({
       async authorize(credentials) {
         try {
           const { data } = await axios.post(
-            `${process.env.NEXT_PUBLIC_API_URL}/api/auth/login`,
+            `${process.env.NEXT_PUBLIC_API_URL}/auth/login`,
             {
               email: credentials?.email,
               password: credentials?.password,
